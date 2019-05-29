@@ -1,0 +1,61 @@
+/** Given an array A of N positive numbers. The task is to find the position where equilibrium first occurs in the array.
+Equilibrium position in an array is a position such that the sum of elements before it is equal to the sum of elements after it.
+
+Input:
+2
+1
+1
+5
+1 3 5 2 2
+
+Output:
+1
+3 **/
+
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+	public static void main (String[] args) {
+		//code
+		Scanner scan = new Scanner(System.in);
+		int t = scan.nextInt();
+		while(t>0)
+		{
+		    int n = scan.nextInt();
+		    int[] arr = new int[n];
+		    for(int i=0;i<n;i++)
+		    {
+		        arr[i] = scan.nextInt();
+		    }
+		    int sum = 0;
+		    for(int i=0;i<n;i++)
+		    {
+		        sum = sum+arr[i];
+		    }
+		    int lsum = 0;
+		    int pos = -1;
+		    for(int i=0;i<n;i++)
+		    {
+		        sum-=arr[i];
+		        if(lsum == sum)
+		        {
+		            pos = i+1;
+		            break;
+		        }
+		        lsum = lsum+arr[i];
+		    }
+		    if(pos!=-1)
+		    {
+		        System.out.println(pos);
+		    }
+		    else
+		    {
+		        System.out.println(-1);
+		    }
+		    t--;
+		}
+	}
+}
