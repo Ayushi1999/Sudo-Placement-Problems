@@ -1,0 +1,60 @@
+/* Given an array of N size. The task is to rotate array by d elements where d is less than or equal to N.
+
+Input
+1
+5
+1 2 3 4 5
+2
+
+Output
+3 4 5 1 2   */
+
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG 
+{
+    static void rotate(int i,int[] arr)
+    {
+        int n = arr.length;
+        int x = arr[0];
+        for(int j=1;j<n;j++)  // 1 2 3 4 5
+        {
+            arr[j-1] = arr[j];
+        }
+         arr[n-1] = x;
+      /*  for(int p=0;p<n;p++)
+        {
+            System.out.print(arr[p]+" ");
+        } */
+       
+    }
+    
+	public static void main (String[] args) {
+		//code
+		Scanner scan = new Scanner(System.in);
+		int t = scan.nextInt();
+		while(t>0)
+		{
+		    int n = scan.nextInt();
+		    int[] arr = new int[n];
+		    for(int i=0;i<n;i++)
+		    {
+		        arr[i] = scan.nextInt();
+		    }
+		    int d = scan.nextInt();
+		    for(int i=0;i<d;i++)
+		    {
+		        rotate(i,arr);
+		    }
+		    for(int i=0;i<n;i++)
+		    {
+		        System.out.print(arr[i]+" ");
+		    }
+		    System.out.println();
+		    t--;
+		}
+	}
+}
